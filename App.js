@@ -1,5 +1,4 @@
-// ****** select items **********
-
+//  select items
 const form = document.querySelector(".grocery-form");
 const alert = document.querySelector(".alert");
 const grocery = document.getElementById("grocery");
@@ -11,17 +10,14 @@ const clearBtn = document.querySelector(".clear-btn");
 let editElement;
 let editFlag = false;
 let editID = "";
-// ****** event listeners **********
-
+// event listeners 
 // submit form
 form.addEventListener("submit", addItem);
 // clear list
 clearBtn.addEventListener("click", clearItems);
 // display items onload
 window.addEventListener("DOMContentLoaded", setupItems);
-
-// ****** functions **********
-
+//functions 
 // add item
 function addItem(e) {
   e.preventDefault();
@@ -99,7 +95,6 @@ function clearItems() {
 }
 
 // delete item
-
 function deleteItem(e) {
   const element = e.currentTarget.parentElement.parentElement;
   const id = element.dataset.id;
@@ -124,7 +119,6 @@ function editItem(e) {
   grocery.value = editElement.innerHTML;
   editFlag = true;
   editID = element.dataset.id;
-  //
   submitBtn.textContent = "edit";
 }
 // set backt to defaults
@@ -134,9 +128,7 @@ function setBackToDefault() {
   editID = "";
   submitBtn.textContent = "submit";
 }
-
-// ****** local storage **********
-
+// local storage 
 // add to local storage
 function addToLocalStorage(id, value) {
   const grocery = { id, value };
@@ -175,9 +167,7 @@ function editLocalStorage(id, value) {
 }
 
 // SETUP LOCALSTORAGE.REMOVEITEM('LIST');
-
-// ****** setup items **********
-
+// setup items 
 function setupItems() {
   let items = getLocalStorage();
 
